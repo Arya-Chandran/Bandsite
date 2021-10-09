@@ -1,171 +1,106 @@
 @font-face {
   font-family: "AvenirNext LT Pro";
-  src: url("../assets/fonts/AvenirNextLTPro-Demi.eot");
-  src: url("../assets/fonts/AvenirNextLTPro-Demi.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff"), url("../assets/fonts/AvenirNextLTPro-Demi.ttf") format("truetype"), url("../assets/fonts/AvenirNextLTPro-Demi.svg#AvenirNextLTPro-Demi") format("svg");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "AvenirNext LT Pro";
-  src: url("../assets/fonts/AvenirNextLTPro-Bold.eot");
-  src: url("../assets/fonts/AvenirNextLTPro-Bold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff"), url("../assets/fonts/AvenirNextLTPro-Bold.ttf") format("truetype"), url("../assets/fonts/AvenirNextLTPro-Bold.svg#AvenirNextLTPro-Bold") format("svg");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "AvenirNext LT Pro";
-  src: url("../assets/fonts/AvenirNextLTPro-Regular.eot");
-  src: url("../assets/fonts/AvenirNextLTPro-Regular.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff"), url("../assets/fonts/AvenirNextLTPro-Regular.ttf") format("truetype"), url("../assets/fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular") format("svg");
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AvenirNext LT Pro";
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AvenirNext LT Pro";
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 body {
   font-family: "AvenirNext LT Pro";
-  margin: 0;
+  color: #323232;
 }
 
-.page-header {
-  background-color: #323232;
-  color: #afafaf;
+html {
+  font-size: 16px;
 }
-.page-header__wrapper {
-  padding: 0 16px;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+  height: 100px;
+  background-color: #323232;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0 2.25rem;
+  }
+}
+.header__wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  text-align: center;
-}
-.page-header__title {
-  height: 20px;
-  width: 120px;
-  padding: 16px 0;
-  margin: 0 auto;
   justify-content: center;
+  align-items: center;
 }
 
 .primary-nav {
+  width: 100%;
+  height: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
-.primary-nav a {
-  color: #ffffff;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-  text-decoration: none;
-  padding-bottom: 16px;
-}
-.primary-nav a:hover {
-  border-bottom: 4px #ffffff;
-}
-.primary-nav a__active {
-  border-bottom: 4px #ffffff;
-}
-
-.banner {
-  position: relative;
-  background-color: #323232;
-}
-.banner__img {
-  max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  opacity: 50%;
-}
-.banner__name {
-  color: #ffffff;
-  position: absolute;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
-  padding: 0 16px;
-  top: 30%;
-}
-
-.band-container {
-  padding: 0 16px;
-}
-.band-container__title {
-  color: #323232;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
-  padding-top: 24px;
-  padding-bottom: 16px;
+.primary-nav__list {
   margin: 0;
-}
-.band-container__img {
-  max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.band-container__subtitle {
-  font-size: 13px;
-  line-height: 22px;
-  font-weight: 600;
-  padding-top: 16px;
-  margin: 0;
-}
-.band-container__body {
-  font-size: 0.825rem;
-  line-height: 18px;
-  font-weight: 400;
-  padding-top: 16px;
-  margin: 0;
-}
-
-.gallery-container {
-  padding: 0 16px;
-  background-color: #fafafa;
-}
-.gallery-container__title {
-  color: #323232;
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: bold;
-  padding-top: 24px;
-  padding-bottom: 16px;
-  margin: 0;
-}
-.gallery-container img {
-  max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding-bottom: 16px;
-}
-
-.page-footer {
-  padding: 0 16px;
-  background-color: #323232;
-  color: #ffffff;
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 400;
-  padding-top: 24px;
-  padding-bottom: 16px;
-  margin: 0;
-}
-.page-footer__images {
+  padding: 0;
+  list-style-type: none;
   display: flex;
-  justify-content: left;
-  padding-bottom: 8px;
+  width: 100%;
 }
-.page-footer__images--icon {
-  padding-right: 16px;
-}
-
-.footer__card--name {
-  font-weight: 700;
-}
-
-.page-footer__label {
-  text-transform: uppercase;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 400;
+.primary-nav__item {
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.page-footer__copyright {
-  font-size: 10px;
-  line-height: 20px;
-  font-weight: 400;
+.hero {
+  padding: 0 1rem;
+  width: 320px;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/images/hero-bio.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    padding: 0 2.25rem;
+  }
+}
+.hero__profile-name {
+  margin: 0;
+  color: #ffffff;
 }/*# sourceMappingURL=bio.css.map */

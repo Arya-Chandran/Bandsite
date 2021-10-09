@@ -11,3 +11,22 @@
     @content;
   }
 }
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexed($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin relative-padding {
+  padding: $mobile-padding;
+
+  @include tablet {
+      padding: $tablet-padding;
+  }
+} 
