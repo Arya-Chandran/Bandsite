@@ -14,7 +14,6 @@
     width: 100%;
     height: 100%;
     margin: 0;
-  
     @include flexed(column);
     justify-content: center;
     align-items: center;
@@ -55,10 +54,130 @@
   background-size: cover;
   display: flex;
   justify-content: flex-start;
-  align-items:center;
+  align-items: center;
 
   &__profile-name {
     margin: 0;
     color: $active-color;
+  }
+}
+
+.band {
+  width: 100%;
+  @include relative-padding;
+  @include flex-center;
+  &__wrapper {
+    width: 100%;
+    @include flex-center;
+    flex-direction: column;
+  }
+  &__title {
+    color: $primary-color;
+    font-size: 1.5rem;
+    line-height: 1.375rem;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    margin: 0;
+  }
+  &__image {
+    max-width: 100%;
+    // object-fit: cover;
+  }
+  &__subtitle {
+    font-size: 0.9rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+    padding-top: 1rem;
+    margin: 0;
+  }
+  &__body {
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    padding-top: 16px;
+    margin: 0;
+    // display: flex;
+    // flex-direction: column;
+    // align-content: flex-start;
+  }
+}
+
+.gallery {
+  width: 100%;
+  @include relative-padding;
+  @include flex-center;
+  flex-direction: column;
+  background-color: $light-color;
+  // &__wrapper {
+  //   width: 100%;
+  //   @include flex-center;
+  //   flex-direction: column;
+  // }
+
+  &__title {
+    color: $primary-color;
+    font-size: 1.5rem;
+    line-height: 1.375rem;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    text-align: left;
+  }
+  & img {
+    max-width: 100%;
+    object-fit: cover;
+    padding-bottom: 16px;
+  }
+}
+
+
+
+.footer{
+    width: 100%;
+    @include relative-padding;
+    @include flex-center;
+    background-color:$primary-color;
+    &__wrapper {
+      width: 100%;
+      @include flex-center;
+      flex-direction: column;
+      color: $active-color;
+    }
+    // padding: 0 16px;
+    // background-color:$primary-color;
+    // color: $active-color;
+    // font-size: 13px;
+    // line-height: 18px;
+    // font-weight: 400; //doubt
+    // padding-top: 24px;
+    // padding-bottom: 16px;
+    // margin: 0;
+    &__title {
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 400; //doubt
+      padding-top: 24px;
+      padding-bottom: 16px;
+      margin: 0;
+    }
+    &__images {
+     display:flex;
+     justify-content:left;
+     padding-bottom: 8px;;
+    &--icon{
+     padding-right:16px;
+    }
+    }
+  
+    &__card--name{
+    font-weight:700;
+     }
+  
+  &__copyright{
+    font-size: 10px;
+    line-height: 20px;
+    font-weight: 400; 
   }
 }
