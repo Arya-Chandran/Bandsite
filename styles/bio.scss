@@ -5,25 +5,52 @@
 
 .header {
   @include flex-center;
-  @include relative-padding;
   width: 100%;
   height: 100px;
   background-color: $primary-color;
 
+  @include tablet {
+    @include relative-padding;
+  }
+
   &__wrapper {
     width: 100%;
     height: 100%;
-    margin: 0;
-    @include flexed(column);
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: left;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+  }
+
+  &__title {
+    height: 20px;
+    width: 120px;
   }
 }
 
 .primary-nav {
   width: 100%;
   height: 50%;
-  @include flex-center;
+  display: flex;
+
+  @include tablet {
+    width: 300px;
+    height: 100%;
+    padding-left: 64px;
+  }
+
+  @include desktop {
+    max-width: $max-content-width;
+  }
 
   &__list {
     margin: 0;
@@ -36,13 +63,31 @@
   &__item {
     color: $active-color;
     width: 100%;
+    @include relative-padding;
     @include flex-center;
+
+    @include tablet {
+      margin: 0;
+      padding: 0;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+
+    &--highlight {
+      border-bottom: 2px solid $active-color;
+
+      @include tablet {
+        width: fit-content;
+      }
+    }
   }
 }
 
 .hero {
   @include relative-padding;
-  width: 320px;
+  width: 100%;
   height: 200px;
   overflow: hidden;
   background: linear-gradient(
@@ -52,15 +97,48 @@
     url("../assets/images/hero-bio.jpg");
   background-position: center;
   background-size: cover;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  position: relative;
 
-  &__profile-name {
-    margin: 0;
-    color: $active-color;
+  @include tablet {
+     height:500px;
+  }
+
+  @include desktop {
+    height:600px;
+  }
+
+  &__wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    bottom: 50%;
+
+    &--text {
+      margin: 0;
+      color: $active-color;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 700;
+      
+      @include tablet {
+        font-size: 60px;
+        line-height: 68px;
+      }
+    }
   }
 }
+
+// @include tablet {
+//     padding-top: 1.25rem;
+//     padding-bottom: 1.25rem;
+//     height: 400px;
+//   }
+
+//   @include desktop {
+//     padding: 1.25rem 0;
+//   }
 
 .band {
   width: 100%;
@@ -68,7 +146,7 @@
   @include flex-center;
   &__wrapper {
     width: 100%;
-    @include flex-center;
+    @include flex-left;
     flex-direction: column;
   }
   &__title {
@@ -79,6 +157,14 @@
     padding-top: 1.5rem;
     padding-bottom: 1rem;
     margin: 0;
+    @include tablet {
+      font-size: 2.15rem;
+      line-height: 2.75rem;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
   }
   &__image {
     max-width: 100%;
@@ -90,6 +176,14 @@
     font-weight: 600;
     padding-top: 1rem;
     margin: 0;
+    @include tablet {
+      font-size: 1rem;
+      line-height: 1.375rem;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
   }
   &__body {
     font-size: 0.8125rem;
@@ -97,9 +191,18 @@
     font-weight: 400;
     padding-top: 16px;
     margin: 0;
-    // display: flex;
-    // flex-direction: column;
-    // align-content: flex-start;
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      @include desktop {
+        max-width: $max-content-width;
+      }
+    }
   }
 }
 
@@ -109,6 +212,7 @@
   @include flex-center;
   flex-direction: column;
   background-color: $light-color;
+
   // &__wrapper {
   //   width: 100%;
   //   @include flex-center;
@@ -132,52 +236,126 @@
   }
 }
 
+.footer {
+  width: 100%;
+  @include relative-padding;
+  background-color: $primary-color;
+  position: relative;
 
-
-.footer{
+  &__wrapper {
     width: 100%;
-    @include relative-padding;
-    @include flex-center;
-    background-color:$primary-color;
-    &__wrapper {
-      width: 100%;
-      @include flex-center;
-      flex-direction: column;
-      color: $active-color;
+    display: flex;
+    flex-direction: column;
+    color: $active-color;
+    padding-bottom: 16px;
+  }
+  &__title-box {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      justify-content: start;
     }
-    // padding: 0 16px;
-    // background-color:$primary-color;
-    // color: $active-color;
-    // font-size: 13px;
-    // line-height: 18px;
-    // font-weight: 400; //doubt
-    // padding-top: 24px;
-    // padding-bottom: 16px;
-    // margin: 0;
-    &__title {
-      font-size: 13px;
-      line-height: 18px;
-      font-weight: 400; //doubt
-      padding-top: 24px;
+    @include desktop {
+      max-width: $max-content-width;
+    }
+  }
+  &__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    margin: 0;
+    @include tablet {
+      font-size: 2.15rem;
+      line-height: 2.75rem;
+      padding-right: 32px;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+  }
+  &__images {
+    display: flex;
+    &--icon {
+      padding-right: 38px;
+    }
+  }
+
+  &__cards {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      font-size: 14.3px;
+      line-height: 20px;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+  }
+  &__card {
+    padding-top: 0;
+    padding-bottom: 16px;
+    margin: 0;
+    @include tablet {
+      padding-right: 32px;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+
+    &--name {
+      font-weight: 700;
       padding-bottom: 16px;
       margin: 0;
     }
-    &__images {
-     display:flex;
-     justify-content:left;
-     padding-bottom: 8px;;
-    &--icon{
-     padding-right:16px;
+    &--address {
+      padding-bottom: 16px;
+      margin: 0;
     }
+    &--email {
+      margin: 0;
     }
-  
-    &__card--name{
-    font-weight:700;
-     }
-  
-  &__copyright{
-    font-size: 10px;
-    line-height: 20px;
-    font-weight: 400; 
+  }
+  &__logo-image {
+    background: url(../assets/logos/Logo-bandsite.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 16px;
+    bottom: 50px;
+    top: 0;
+    right: 0;
+    background-position: left bottom;
+    padding-bottom: 20px;
+   
+    @include tablet {
+      background-position: right top;
+      left: 0;
+      bottom: 0;
+      top: 30px;
+      right: 36px;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+  }
+  &__copyright {
+    padding-top: 32px;
+    font-size: 11px;
+    line-height: 18px;
+    font-weight: 400;
   }
 }
