@@ -17,11 +17,7 @@
   @include tablet {
       padding: $tablet-padding;
   }
-  @include desktop {
-    padding: $desktop-padding;
-  }
 } 
-
 
 
 @mixin tablet {
