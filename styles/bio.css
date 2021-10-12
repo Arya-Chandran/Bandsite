@@ -109,7 +109,7 @@ body {
   align-items: center;
 }
 .primary-nav__item:hover {
-  border-bottom: 4px solid #ffffff;
+  border-bottom: 0.25rem solid #ffffff;
 }
 @media screen and (min-width: 768px) {
   .primary-nav__item:hover {
@@ -157,6 +157,8 @@ body {
 @media screen and (min-width: 1312px) {
   .hero__wrapper {
     max-width: 1280px;
+    top: 50%;
+    bottom: 50%;
   }
 }
 .hero__wrapper--text {
@@ -170,6 +172,11 @@ body {
   .hero__wrapper--text {
     font-size: 3.75rem;
     line-height: 4.25rem;
+  }
+}
+@media screen and (min-width: 1312px) {
+  .hero__wrapper--text {
+    max-width: 1280px;
   }
 }
 
@@ -255,7 +262,7 @@ body {
 }
 @media screen and (min-width: 1312px) {
   .band__subtitle--tag {
-    margin-right: 20px;
+    max-width: 1280px;
     width: 70%;
   }
 }
@@ -306,7 +313,7 @@ body {
   }
 }
 .band__body--content p {
-  margin-right: 32px;
+  margin-right: 2rem;
 }
 
 .gallery {
@@ -502,7 +509,7 @@ body {
 }
 .footer__copyright {
   padding-top: 2rem;
-  font-size: 11px;
+  font-size: 0.6875rem;
   line-height: 1.125rem;
   font-weight: 400;
   margin: 0;
@@ -510,7 +517,7 @@ body {
 @media screen and (min-width: 768px) {
   .footer__copyright {
     padding-top: 1.5rem;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.25rem;
   }
 }/*# sourceMappingURL=bio.css.map */
