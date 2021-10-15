@@ -120,13 +120,13 @@
   }
 
   &__profile {
-    position: relative;
+    //position: relative;
     display: flex;
     //justify-content: center;
     align-items: left;
 
     &--title {
-      position: absolute;
+     //position: absolute;
       color: $active-color;
       font-size: 13px;
       line-height: 18px;
@@ -141,7 +141,7 @@
     }
 
     &--text {
-      position: absolute;
+     // position: absolute;
       margin: 0;
       color: $active-color;
       font-size: 1.5rem;

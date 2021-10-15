@@ -32,29 +32,43 @@ const showDetails= [
      }
 ];
 
-//console.table(showDetails);
 
 const showsList = document.querySelector('.shows__cards');
 console.log(showsList);
 
-function listShows(){
+
+function displayShows(){
     for(let i = 0; i < showDetails.length; i++){   
     // create <li>
     const showsItem = document.createElement('li');
     showsItem.classList.add('shows__card');
-
+    
+    //create <h4>
+    const dateTitle = document.createElement('h4');
+    dateTitle.innerText ='Date';
+    dateTitle.classList.add('shows__card--title');
+   
     // create <p>
     const showsDate = document.createElement('p');
     showsDate.innerText = showDetails[i].date;
-    showsDate.classList.add('shows__card--element');
+    showsDate.classList.add('shows__card--content');
+  
+    const venueTitle = document.createElement('h4');
+    venueTitle.innerText ='Venue';
+    venueTitle.classList.add('shows__card--title');
 
     const showsVenue = document.createElement('p');
     showsVenue.innerText = showDetails[i].venue;
-    showsVenue.classList.add('shows__card--element');
+    showsVenue.classList.add('shows__card--content');
+    
+ 
+    const locationTitle = document.createElement('h4');
+    locationTitle.innerText ='Location';
+    locationTitle.classList.add('shows__card--title');
 
     const showsLocation = document.createElement('p');
     showsLocation.innerText = showDetails[i].location;
-    showsLocation.classList.add('shows__card--element');
+    showsLocation.classList.add('shows__card--content');
 
 
     // create <a> button
@@ -65,8 +79,11 @@ function listShows(){
   
 
     // append create elements  to showsItem
+    showsItem.appendChild(dateTitle);
     showsItem.appendChild(showsDate);
+    showsItem.appendChild(venueTitle)
     showsItem.appendChild(showsVenue);
+    showsItem.appendChild(locationTitle);
     showsItem.appendChild(showsLocation);
     showsItem.appendChild(showsBtn);
     
@@ -75,7 +92,7 @@ function listShows(){
   }
 }
 
-listShows();
+displayShows();
 
 
 
