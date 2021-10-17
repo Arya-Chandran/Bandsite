@@ -49,6 +49,7 @@ function listShows() {
     const showsDate = document.createElement("p");
     showsDate.innerText = showDetails[i].date;
     showsDate.classList.add("shows__card--content");
+    showsDate.classList.add("shows__card--highlight");
 
     const venueTitle = document.createElement("h4");
     venueTitle.innerText = "Venue";
@@ -66,11 +67,16 @@ function listShows() {
     showsLocation.innerText = showDetails[i].location;
     showsLocation.classList.add("shows__card--content");
 
+    // create button container
+    
+    const showsBtnWrapper = document.createElement("div");
+    showsBtnWrapper.classList.add("shows__btnWrapper");
+
     // create <a> button
     const showsBtn = document.createElement("a");
     showsBtn.innerText = "Buy Tickets";
     showsBtn.setAttribute("href", "#");
-    showsBtn.classList.add("btn");
+    showsBtn.classList.add("shows__btnWrapper--btn");
 
     // append create elements  to showsItem
     showsItem.appendChild(dateTitle);
@@ -79,7 +85,10 @@ function listShows() {
     showsItem.appendChild(showsVenue);
     showsItem.appendChild(locationTitle);
     showsItem.appendChild(showsLocation);
-    showsItem.appendChild(showsBtn);
+    showsBtnWrapper.appendChild(showsBtn);
+    showsItem.appendChild(showsBtnWrapper);
+
+    // showsItem.appendChild(showsBtn);
 
     // finally append all the <li> elements to showsList
     showsList.appendChild(showsItem);
