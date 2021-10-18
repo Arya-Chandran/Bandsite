@@ -26,7 +26,7 @@
     margin: 0;
     @include desktop {
       max-width: $max-content-width;
-      margin:0 auto;
+      margin: 0 auto;
     }
   }
 
@@ -42,15 +42,14 @@
     }
 
     &--contentdivider {
-      padding:0;
-     
+      padding: 0;
     }
 
     &--title {
       margin: 0;
       padding-top: 1.5rem;
       color: $active-color;
-      font-size: .875rem;
+      font-size: 0.875rem;
       line-height: 1.125rem;
       font-weight: 400;
 
@@ -102,7 +101,7 @@
         position: relative;
       }
     }
-   
+
     &--iframebox2 {
       margin: 0;
       @include desktop {
@@ -159,13 +158,12 @@
     }
 
     @include desktop {
-      padding: 0;
+      padding:.5rem 0 0 0;
       flex-basis: 17%;
     }
   }
 
   &__contentdivider {
-   
     @include desktop {
       flex-basis: 100%;
     }
@@ -174,6 +172,7 @@
   &__banner {
     visibility: hidden;
     display: none;
+    
     @include tablet {
       visibility: visible;
       display: flex;
@@ -187,7 +186,7 @@
 
     @include desktop {
       justify-content: space-between;
-      padding-top: .5rem;
+      padding-top: 0.5rem;
     }
 
     &--item {
@@ -205,7 +204,7 @@
 
       @include desktop {
         max-width: $max-content-width;
-        padding:1rem;
+        padding: 1rem;
         margin-right: 2.4rem;
       }
     }
@@ -221,17 +220,11 @@
     @include tablet {
       justify-content: space-between;
     }
-
-  
   }
   &__card {
     margin: 0;
     padding: 1rem 0;
     border-bottom: 2px solid $line-color;
-
-    &:hover {
-      background-color: $light-color;
-    }
 
     &:active {
       background-color: $line-color;
@@ -239,25 +232,33 @@
 
     @include tablet {
       display: flex;
-  
-      // &:hover {
-      //   background-color: $light-color;
-      // }
 
-      // &:active {
-      //   background-color: $line-color;
-      // }
+      &:hover {
+        background-color: $light-color;
+      }
+
+      &:active {
+        background-color: $line-color;
+      }
     }
 
     @include desktop {
-     justify-content: space-between;
+      justify-content: space-between;
+
+      &:hover {
+        background-color: $light-color;
+      }
+
+      &:active {
+        background-color: $line-color;
+      }
     }
 
     &--title {
       color: $secondary-color;
       text-transform: uppercase;
       padding-left: 1rem;
-      font-size: .8125rem;
+      font-size: 0.8125rem;
       line-height: 1.125rem;
       font-weight: 700;
       margin: 0;
@@ -268,7 +269,7 @@
     }
 
     &--content {
-      font-size: .875rem;
+      font-size: 0.875rem;
       line-height: 1.125rem;
       font-weight: 400;
       padding: 1rem;
@@ -300,12 +301,12 @@
     align-items: center;
 
     @include desktop {
-      padding:0;
+      padding: 0;
     }
 
     &--btn {
       width: 100%;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
       text-decoration: none;
       font-size: 1rem;
       line-height: 1.125rem;

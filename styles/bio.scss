@@ -316,7 +316,6 @@
       flex: 0 0 80%;
       display: flex;
       flex-direction: column;
-      // align-items: flex-start;
       border-bottom: 2px solid $line-color;
 
       @include tablet {
@@ -335,7 +334,6 @@
       @include tablet {
         font-size: 1rem;
         line-height: 1.375rem;
-       // text-align: left;
         flex: 0 0 25%;
       }
     }
@@ -343,10 +341,6 @@
     &--field {
       padding-bottom: .625rem;
       width:100%;
-
-      @include tablet {
-        clear:both;
-      }
     }
 
     &--name {
@@ -363,7 +357,7 @@
 
       &:focus {
         outline: none !important;
-        border:1px solid $primary-color;
+        border:1px solid $primary-color !important;
       }
 
       @include tablet {
@@ -387,7 +381,7 @@
 
       &:focus {
         outline: none !important;
-        border:1px solid $primary-color;
+        border:1px solid $primary-color !important;
       }
 
       @include tablet {
@@ -412,8 +406,8 @@
       text-transform: uppercase;
       text-align: center;
 
-      @include tablet {
-       float:right;
+      &:hover {
+        background-color: $hover-color;
       }
     }
   }
@@ -442,14 +436,8 @@
 
     @include tablet {
       padding: 2.25rem 0 1.5rem;
-
-      &:hover {
-        background-color: $light-color;
-      }
-      &:active {
-        background-color: $line-color;
-      }
     }
+
     @include desktop {
       justify-content: space-between;
     }
@@ -486,7 +474,7 @@
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: .5rem;
-      
+
       @include tablet {
        margin:0;
       }

@@ -102,11 +102,28 @@ function createCommentObject(name, comment) {
   };
 }
 
-//clears the input fields after submitting a new comment
+// Clears the input fields after submitting a new comment
 function clear() {
   document.getElementById("name").value = "";
   document.getElementById("comment").value = "";
 }
+
+// Event Listeners for handling input active and error state
+const nameField = document.getElementById("name");
+const commentField = document.getElementById("comment");
+
+nameField.addEventListener('input', function (e) {
+  if( e.target.value) {
+    document.querySelector(".comments__form--name").style.border = "1px solid #323232";
+  }
+});
+
+commentField.addEventListener('input', function (e) {
+  console.log(e.target.value)
+  if( e.target.value) {
+    document.querySelector(".comments__form--text").style.border = "1px solid #323232";
+  }
+});
 
 // Event Listener for handling form submission
 const form = document.getElementById("comments__form");
