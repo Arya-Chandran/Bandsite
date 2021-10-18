@@ -4,7 +4,6 @@
 @use "./partials/resets" as *;
 @use "./partials/global" as *;
 
-
 .hero {
   @include relative-padding;
   width: 100%;
@@ -124,7 +123,7 @@
         line-height: 1.7rem;
         padding: 0 4rem;
       }
-     
+
       @include desktop {
         max-width: $max-content-width;
         width: 70%;
@@ -243,3 +242,297 @@
   }
 }
 
+.comments {
+  width: 100%;
+  @include relative-padding;
+  @include flex-center;
+
+  &__wrapper {
+    width: 100%;
+
+    @include flex-left;
+    flex-direction: column;
+
+    @include desktop {
+      max-width: $max-content-width;
+    }
+  }
+
+  &__title {
+    color: $primary-color;
+    font-size: 1.5rem;
+    line-height: 1.375rem;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    text-align: left;
+
+    @include tablet {
+      font-size: 2.25rem;
+      line-height: 2.75rem;
+      padding-top: 3rem;
+      padding-bottom: 2.25rem;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+
+    @include tablet {
+     padding: 0 3rem;
+    }
+
+    @include desktop {
+      padding-left: 14rem;
+      padding-right:20rem;
+    }
+
+    &--left {
+      flex: 0 0 20%;
+      padding-top: 1.5rem;
+      border-bottom: 2px solid $line-color;
+
+      @include tablet {
+        flex: 0 0 10%;
+        padding-top: 1.25rem;
+        padding-right: 1rem;
+        }
+    }
+
+    &--image {
+      border-radius: 50%;
+      height: 2.25rem;
+      width: 2.25rem;
+    
+      @include tablet {
+        height: 3rem;
+        width: 3rem;
+      }
+    }
+
+    &--right {
+      flex: 0 0 80%;
+      display: flex;
+      flex-direction: column;
+      // align-items: flex-start;
+      border-bottom: 2px solid $line-color;
+
+      @include tablet {
+        flex: 0 0 90%;
+        }
+    }
+
+    &--label-tag {
+      font-size: .719rem;
+      line-height: 1.125rem;
+      font-weight: 700;
+      color: $secondary-color;
+      text-transform: uppercase;
+      padding: .25rem 0;
+    
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.375rem;
+       // text-align: left;
+        flex: 0 0 25%;
+      }
+    }
+
+    &--field {
+      padding-bottom: .625rem;
+      width:100%;
+
+      @include tablet {
+        clear:both;
+      }
+    }
+
+    &--name {
+      font-size: .875rem;
+      line-height: 1.125rem;
+      height:2.25rem;
+      width: 100%;
+      padding: .75rem;
+      margin: .25rem 0;
+      display: inline-block;
+      border: 1px solid $line-color;
+      border-radius: .25rem;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none !important;
+        border:1px solid $primary-color;
+      }
+
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.375rem;
+        padding: 1rem;
+        flex: 0 0 25%;
+      }
+    }
+
+    &--text {
+      font-size: .875rem;
+      line-height: 1.125rem;
+      width: 100%;
+      height: 6.25rem;
+      padding: .75rem;
+      margin: .25rem 0;
+      box-sizing: border-box;
+      border: 1px solid $line-color;
+      border-radius: .25rem;
+
+      &:focus {
+        outline: none !important;
+        border:1px solid $primary-color;
+      }
+
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.375rem;
+        flex: 0 0 25%;
+      }
+    }
+
+    &--sbt {
+      font-size: 1rem;
+      line-height: 1.375rem;
+      font-weight: 700;
+      width: 100%;
+      margin: 1.25rem 0 2.25rem;
+      border-width: 0;
+      border-radius: .25rem;
+      padding: .25rem 2rem;
+      height: 2.5rem;
+      color: $active-color;
+      background-color: $primary-color;
+      text-transform: uppercase;
+      text-align: center;
+
+      @include tablet {
+       float:right;
+      }
+    }
+  }
+
+  &__cards {
+    margin: 0;
+    padding: .25rem 0 1rem;
+    list-style-type: none;
+
+    @include tablet {
+      justify-content: space-between;
+      padding:0 3rem 2.25rem;
+    }
+    @include desktop {
+      padding-left: 14rem;
+      padding-right:20rem;
+    }
+  }
+
+  &__card {
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 2px solid $line-color;
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      padding: 2.25rem 0 1.5rem;
+
+      &:hover {
+        background-color: $light-color;
+      }
+      &:active {
+        background-color: $line-color;
+      }
+    }
+    @include desktop {
+      justify-content: space-between;
+    }
+
+    &--left {
+      flex: 0 0 20%;
+
+      @include tablet {
+        flex: 0 0 10%;
+      }
+    }
+
+    &--image {
+      border-radius: 50%;
+      background-color: $line-color;
+      height: 2.25rem;
+      width: 2.25rem;
+
+      @include tablet {
+        height: 3rem;
+        width: 3rem;
+      }
+    }
+
+    &--right {
+      flex: 0 0 80%;
+
+      @include tablet {
+        flex: 0 0 90%;
+      }
+    }
+    &--top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: .5rem;
+      
+      @include tablet {
+       margin:0;
+      }
+    }
+
+    &--name {
+      color: $primary-color;
+      font-size: .875rem;
+      line-height: 1.125rem;
+      font-weight: 700;
+      padding: 0;
+      margin: 0;
+      word-wrap: break-word;
+
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.375rem;
+      }
+    }
+
+    &--date {
+      font-size: .875rem;
+      line-height: 1.125rem;
+      font-weight: 400;
+      color: $secondary-color;
+      margin: 0;
+
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.375rem;
+      }
+    }
+    &--text {
+      font-size: 14px;
+      line-height: 1.125rem;
+      font-weight: 400;
+      word-wrap: break-word;
+
+      @include tablet {
+        font-size: 1rem;
+        line-height: 1.375rem;
+     
+      }
+      @include desktop {
+        max-width: $max-content-width;
+      }
+    }
+  }
+}

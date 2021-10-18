@@ -37,9 +37,23 @@ function displayComment(newComment) {
     const commentsItem = document.createElement("li");
     commentsItem.classList.add("comments__card");
 
+    //create <div>
+    const leftDiv = document.createElement("div")
+    leftDiv.classList.add("comments__card--left");
+
     //create <image>
     const commentsImage = document.createElement("img");
     commentsImage.classList.add("comments__card--image");
+  
+   
+    //create <div>
+    const rightDiv = document.createElement("div")
+    rightDiv.classList.add("comments__card--right");
+
+    
+    //create <div>
+    const topDiv = document.createElement("div")
+    topDiv.classList.add("comments__card--top");
 
     //create <h4>
     const commentsName = document.createElement("h4");
@@ -50,16 +64,24 @@ function displayComment(newComment) {
     const commentsDate = document.createElement("p");
     commentsDate.innerText = new Date(comment.timeStamp) .toLocaleString() .split(",")[0];
     commentsDate.classList.add("comments__card--date");
+    
+    //create <div>
+    const bottomDiv = document.createElement("div")
+    bottomDiv.classList.add("comments__card--bottom");
 
     const commentsText = document.createElement("p");
     commentsText.innerText = comment.comment;
     commentsText.classList.add("comments__card--text");
 
     // append create elements  to commentsItem
-    commentsItem.appendChild(commentsImage);
-    commentsItem.appendChild(commentsName);
-    commentsItem.appendChild(commentsDate);
-    commentsItem.appendChild(commentsText);
+    leftDiv.appendChild(commentsImage);
+    commentsItem.appendChild(leftDiv);
+    topDiv.appendChild(commentsName);
+    topDiv.appendChild(commentsDate);
+    rightDiv.appendChild(topDiv);
+    bottomDiv.appendChild(commentsText);
+    rightDiv.appendChild(bottomDiv);
+    commentsItem.appendChild(rightDiv);
 
     // finally append all the <li> elements to commentsList
     commentsList.appendChild(commentsItem);
@@ -87,21 +109,31 @@ function clear() {
 }
 
 // Event Listener for handling form submission
-const form = document.getElementById("commentForm");
+const form = document.getElementById("comments__form");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const name = e.target.name.value;
   const comment = e.target.comment.value;
-  let commentSection = document.querySelector(".comments__cards");
 
-  //creating new comment object
-  const newComment = createCommentObject(name, comment);
+  if (!name || !comment) {
+    if(!name) {
+      document.querySelector(".comments__form--name").style.border = "1px solid #d22d2d";
+    }
+    if(!comment) {
+      document.querySelector(".comments__form--text").style.border = "1px solid #d22d2d";
+    }
+  } else {
+    let commentSection = document.querySelector(".comments__cards");
 
-  //Clearing the list from DOM and adding the updated comment list
-  commentSection.innerHTML = "";
-  displayComment(newComment);
-  clear();
+    //creating new comment object
+    const newComment = createCommentObject(name, comment);
+  
+    //Clearing the list from DOM and adding the updated comment list
+    commentSection.innerHTML = "";
+    displayComment(newComment);
+    clear();
+  }
 });
 
 // Listing the comments in first render
