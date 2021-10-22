@@ -409,6 +409,11 @@
       &:hover {
         background-color: $hover-color;
       }
+
+      @include tablet {
+       width:30%;
+      }
+
     }
   }
 

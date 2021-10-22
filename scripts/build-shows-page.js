@@ -1,41 +1,24 @@
-const showDetails = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tues Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
 
 const showsList = document.querySelector(".shows__cards");
 console.log(showsList);
 
+const domainName = `https://project-1-api.herokuapp.com`;
+const API_key = '0419780e-8dd8-49c0-9e55-898d29814a69';
+
+axios.get(`${domainName}/showdates?api_key=${API_key}`).then((response) => {
+    console.log('Comments', response.data);
+});
+
 function listShows() {
-  for (let i = 0; i < showDetails.length; i++) {
+
+  axios.get(`${domainName}/showdates?api_key=${API_key}`).then((response) => {
+    //sort the objects in the array by date
+    const sortedShowdates = response.data.sort(function (a, b) { 
+        return b.timestamp - a.timestamp;
+    });
+
+   //for (let i = 0; i < showDetails.length; i++)
+   sortedShowdates.forEach(function (show) {
     // create <li>
     const showsItem = document.createElement("li");
     showsItem.classList.add("shows__card");
@@ -47,7 +30,8 @@ function listShows() {
 
     // create <p>
     const showsDate = document.createElement("p");
-    showsDate.innerText = showDetails[i].date;
+    showsDate.innerText =show.date;
+    
     showsDate.classList.add("shows__card--content");
     showsDate.classList.add("shows__card--highlight");
 
@@ -56,7 +40,7 @@ function listShows() {
     venueTitle.classList.add("shows__card--title");
 
     const showsVenue = document.createElement("p");
-    showsVenue.innerText = showDetails[i].venue;
+    showsVenue.innerText = show.place;
     showsVenue.classList.add("shows__card--content");
 
     const locationTitle = document.createElement("h4");
@@ -64,7 +48,7 @@ function listShows() {
     locationTitle.classList.add("shows__card--title");
 
     const showsLocation = document.createElement("p");
-    showsLocation.innerText = showDetails[i].location;
+    showsLocation.innerText = show.location;
     showsLocation.classList.add("shows__card--content");
 
     // create button container
@@ -92,7 +76,9 @@ function listShows() {
 
     // finally append all the <li> elements to showsList
     showsList.appendChild(showsItem);
-  }
+  });
+});
 }
+
 
 listShows();

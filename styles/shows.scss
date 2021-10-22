@@ -1,326 +1,326 @@
-@use "./partials/variables" as *;
-@use "./partials/mixins" as *;
-@use "./partials/typography" as *;
-@use "./partials/resets" as *;
-@use "./partials/global" as *;
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+@use './partials/typography' as *;
+@use './partials/resets' as *;
+@use './partials/global' as *;
 
 .hero {
-  @include relative-padding;
-  width: 100%;
-  height: 280px;
-  overflow: hidden;
-  background: linear-gradient(
-      rgba($primary-color, 0.5),
-      rgba($primary-color, 0.5)
-    ),
-    url("../assets/images/hero-shows.jpg");
-  background-position: center;
-  background-size: cover;
-
-  @include tablet {
-    height: 450px;
-  }
-
-  &__wrapper {
+    @include relative-padding;
     width: 100%;
-    margin: 0;
-    @include desktop {
-      max-width: $max-content-width;
-      margin: 0 auto;
-    }
-  }
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(
+            rgba($primary-color, 0.5),
+            rgba($primary-color, 0.5)
+        ),
+        url('../assets/images/hero-shows.jpg');
+    background-position: center;
+    background-size: cover;
 
-  &__profile {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-
-    @include desktop {
-      max-width: $max-content-width;
-      flex-direction: row;
-      justify-content: space-around;
+    @include tablet {
+        height: 450px;
     }
 
-    &--contentdivider {
-      padding: 0;
-    }
-
-    &--title {
-      margin: 0;
-      padding-top: 1.5rem;
-      color: $active-color;
-      font-size: 0.875rem;
-      line-height: 1.125rem;
-      font-weight: 400;
-
-      @include tablet {
-        font-size: 1.75rem;
-        line-height: 1.375rem;
-        font-weight: 700;
-        padding-top: 3rem;
-      }
-    }
-
-    &--text {
-      margin: 0;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      color: $active-color;
-      font-size: 1.5rem;
-      line-height: 2rem;
-      font-weight: 700;
-      float: left;
-      word-wrap: break-word;
-      width: 75%;
-
-      @include tablet {
-        font-size: 3.8rem;
-        line-height: 4rem;
-        padding-top: 2.25rem;
-        padding-bottom: 2.25rem;
-        word-wrap: break-word;
-        width: 75%;
-      }
-
-      @include desktop {
-        max-width: $max-content-width;
-        word-wrap: break-word;
-        width: 70%;
-      }
-    }
-
-    &--iframebox {
-      margin: 0;
-      padding-bottom: 1rem;
-
-      @include tablet {
-        width: 58%;
-      }
-
-      @include desktop {
-        position: relative;
-      }
-    }
-
-    &--iframebox2 {
-      margin: 0;
-      @include desktop {
-        position: absolute;
+    &__wrapper {
         width: 100%;
-        bottom: 2.5rem;
-      }
+        margin: 0;
+        @include desktop {
+            max-width: $max-content-width;
+            margin: 0 auto;
+        }
     }
-  }
+
+    &__profile {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        @include desktop {
+            max-width: $max-content-width;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        &--contentdivider {
+            padding: 0;
+        }
+
+        &--title {
+            margin: 0;
+            padding-top: 1.5rem;
+            color: $active-color;
+            font-size: 0.875rem;
+            line-height: 1.125rem;
+            font-weight: 400;
+
+            @include tablet {
+                font-size: 1.75rem;
+                line-height: 1.375rem;
+                font-weight: 700;
+                padding-top: 3rem;
+            }
+        }
+
+        &--text {
+            margin: 0;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            color: $active-color;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            float: left;
+            word-wrap: break-word;
+            width: 75%;
+
+            @include tablet {
+                font-size: 3.8rem;
+                line-height: 4rem;
+                padding-top: 2.25rem;
+                padding-bottom: 2.25rem;
+                word-wrap: break-word;
+                width: 75%;
+            }
+
+            @include desktop {
+                max-width: $max-content-width;
+                word-wrap: break-word;
+                width: 70%;
+            }
+        }
+
+        &--iframebox {
+            margin: 0;
+            padding-bottom: 1rem;
+
+            @include tablet {
+                width: 58%;
+            }
+
+            @include desktop {
+                position: relative;
+            }
+        }
+
+        &--iframebox2 {
+            margin: 0;
+            @include desktop {
+                position: absolute;
+                width: 100%;
+                bottom: 2.5rem;
+            }
+        }
+    }
 }
 
 .shows {
-  width: 100%;
-  @include flex-center;
-
-  @include tablet {
-    padding: 0 1rem;
-  }
-
-  @include desktop {
-    padding: 0 2.25rem;
-  }
-
-  &__wrapper {
     width: 100%;
-    padding-bottom: 1rem;
-    @include flex-left;
-    flex-direction: column;
+    @include flex-center;
 
     @include tablet {
-      padding-bottom: 2.25rem;
+        padding: 0 1rem;
     }
 
     @include desktop {
-      max-width: $max-content-width;
-      flex-direction: row;
-      padding-top: 3rem;
-    }
-  }
-
-  &__title {
-    color: $primary-color;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 700;
-    padding: 1.5rem 1rem 0;
-    margin: 0;
-
-    @include tablet {
-      font-size: 2.25rem;
-      line-height: 2.75rem;
-      padding: 3rem 1.25rem 0;
-      flex: 0 0 30%;
+        padding: 0 2.25rem;
     }
 
-    @include desktop {
-      padding:.5rem 0 0 0;
-      flex-basis: 17%;
-    }
-  }
+    &__wrapper {
+        width: 100%;
+        padding-bottom: 1rem;
+        @include flex-left;
+        flex-direction: column;
 
-  &__contentdivider {
-    @include desktop {
-      flex-basis: 100%;
-    }
-  }
+        @include tablet {
+            padding-bottom: 2.25rem;
+        }
 
-  &__banner {
-    visibility: hidden;
-    display: none;
-    
-    @include tablet {
-      visibility: visible;
-      display: flex;
-      justify-content: space-between;
-      color: $secondary-color;
-      text-transform: uppercase;
-      margin: 0;
-      padding: 2.25rem 0 0;
-      list-style-type: none;
+        @include desktop {
+            max-width: $max-content-width;
+            flex-direction: row;
+            padding-top: 3rem;
+        }
     }
 
-    @include desktop {
-      justify-content: space-between;
-      padding-top: 0.5rem;
-    }
-
-    &--item {
-      @include tablet {
-        font-size: 1rem;
-        line-height: 1.375rem;
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+    &__title {
+        color: $primary-color;
+        font-size: 1.5rem;
+        line-height: 2rem;
         font-weight: 700;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex: 0 0 25%;
-      }
+        padding: 1.5rem 1rem 0;
+        margin: 0;
 
-      @include desktop {
-        max-width: $max-content-width;
-        padding: 1rem;
-        margin-right: 2.4rem;
-      }
-    }
-  }
+        @include tablet {
+            font-size: 2.25rem;
+            line-height: 2.75rem;
+            padding: 3rem 1.25rem 0;
+            flex: 0 0 30%;
+        }
 
-  &__cards {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-
-    @include tablet {
-      justify-content: space-between;
-    }
-  }
-  &__card {
-    margin: 0;
-    padding: 1rem 0;
-    border-bottom: 2px solid $line-color;
-
-    &:active {
-      background-color: $line-color;
+        @include desktop {
+            padding: 0.5rem 0 0 0;
+            flex-basis: 17%;
+        }
     }
 
-    @include tablet {
-      display: flex;
-
-      &:hover {
-        background-color: $light-color;
-      }
-
-      &:active {
-        background-color: $line-color;
-      }
+    &__contentdivider {
+        @include desktop {
+            flex-basis: 100%;
+        }
     }
 
-    @include desktop {
-      justify-content: space-between;
-
-      &:hover {
-        background-color: $light-color;
-      }
-
-      &:active {
-        background-color: $line-color;
-      }
-    }
-
-    &--title {
-      color: $secondary-color;
-      text-transform: uppercase;
-      padding-left: 1rem;
-      font-size: 0.8125rem;
-      line-height: 1.125rem;
-      font-weight: 700;
-      margin: 0;
-
-      @include tablet {
+    &__banner {
+        visibility: hidden;
         display: none;
-      }
+
+        @include tablet {
+            visibility: visible;
+            display: flex;
+            justify-content: space-between;
+            color: $secondary-color;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 2.25rem 0 0;
+            list-style-type: none;
+        }
+
+        @include desktop {
+            justify-content: space-between;
+            padding-top: 0.5rem;
+        }
+
+        &--item {
+            @include tablet {
+                font-size: 1rem;
+                line-height: 1.375rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                font-weight: 700;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex: 0 0 25%;
+            }
+
+            @include desktop {
+                max-width: $max-content-width;
+                padding: 1rem;
+                margin-right: 2.4rem;
+            }
+        }
     }
 
-    &--content {
-      font-size: 0.875rem;
-      line-height: 1.125rem;
-      font-weight: 400;
-      padding: 1rem;
-      margin: 0;
+    &__cards {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
 
-      @include tablet {
-        font-size: 1rem;
-        line-height: 1.375rem;
-        padding-left: 1.25rem;
-        text-align: left;
-        flex: 0 0 25%;
-      }
+        @include tablet {
+            justify-content: space-between;
+        }
+    }
+    &__card {
+        margin: 0;
+        padding: 1rem 0;
+        border-bottom: 2px solid $line-color;
 
-      @include desktop {
-        max-width: $max-content-width;
-      }
+        &:active {
+            background-color: $line-color;
+        }
+
+        @include tablet {
+            display: flex;
+
+            &:hover {
+                background-color: $light-color;
+            }
+
+            &:active {
+                background-color: $line-color;
+            }
+        }
+
+        @include desktop {
+            justify-content: space-between;
+
+            &:hover {
+                background-color: $light-color;
+            }
+
+            &:active {
+                background-color: $line-color;
+            }
+        }
+
+        &--title {
+            color: $secondary-color;
+            text-transform: uppercase;
+            padding-left: 1rem;
+            font-size: 0.8125rem;
+            line-height: 1.125rem;
+            font-weight: 700;
+            margin: 0;
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &--content {
+            font-size: 0.875rem;
+            line-height: 1.125rem;
+            font-weight: 400;
+            padding: 1rem;
+            margin: 0;
+
+            @include tablet {
+                font-size: 1rem;
+                line-height: 1.375rem;
+                padding-left: 1.25rem;
+                text-align: left;
+                flex: 0 0 25%;
+            }
+
+            @include desktop {
+                max-width: $max-content-width;
+            }
+        }
+
+        &--highlight {
+            font-weight: bold;
+        }
     }
 
-    &--highlight {
-      font-weight: bold;
+    &__btnWrapper {
+        text-align: center;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include desktop {
+            padding: 0;
+        }
+
+        &--btn {
+            width: 100%;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            font-size: 1rem;
+            line-height: 1.125rem;
+            font-weight: 700;
+            background-color: $primary-color;
+            color: $active-color;
+            padding: 0.9rem 0;
+            text-transform: uppercase;
+
+            @include tablet {
+                padding: 1rem 1.625rem;
+            }
+        }
     }
-  }
 
-  &__btnWrapper {
-    text-align: center;
-    padding: 0 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include desktop {
-      padding: 0;
-    }
-
-    &--btn {
-      width: 100%;
-      border-radius: 0.25rem;
-      text-decoration: none;
-      font-size: 1rem;
-      line-height: 1.125rem;
-      font-weight: 700;
-      background-color: $primary-color;
-      color: $active-color;
-      padding: 0.9rem 0;
-      text-transform: uppercase;
-
-      @include tablet {
-        padding: 1rem 1.625rem;
-      }
-    }
-  }
-
-  @include flex-center;
+    @include flex-center;
 }
