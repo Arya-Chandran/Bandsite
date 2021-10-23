@@ -5,9 +5,6 @@ console.log(showsList);
 const domainName = `https://project-1-api.herokuapp.com`;
 const API_key = '0419780e-8dd8-49c0-9e55-898d29814a69';
 
-axios.get(`${domainName}/showdates?api_key=${API_key}`).then((response) => {
-    console.log('Comments', response.data);
-});
 
 function listShows() {
 
@@ -30,7 +27,9 @@ function listShows() {
 
     // create <p>
     const showsDate = document.createElement("p");
-    showsDate.innerText =show.date;
+    let date=new Date(Number(show.date));
+    let dateString= date.toDateString();
+    showsDate.innerText =dateString;
     
     showsDate.classList.add("shows__card--content");
     showsDate.classList.add("shows__card--highlight");
@@ -72,7 +71,7 @@ function listShows() {
     showsBtnWrapper.appendChild(showsBtn);
     showsItem.appendChild(showsBtnWrapper);
 
-    // showsItem.appendChild(showsBtn);
+   
 
     // finally append all the <li> elements to showsList
     showsList.appendChild(showsItem);

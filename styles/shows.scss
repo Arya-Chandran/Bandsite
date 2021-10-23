@@ -25,6 +25,7 @@
         width: 100%;
         margin: 0;
         @include desktop {
+            height: 450px;
             max-width: $max-content-width;
             margin: 0 auto;
         }
@@ -36,6 +37,7 @@
         flex-direction: column;
 
         @include desktop {
+            height: 450px;
             max-width: $max-content-width;
             flex-direction: row;
             justify-content: space-around;
@@ -43,6 +45,13 @@
 
         &--contentdivider {
             padding: 0;
+
+            @include desktop {
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: flex-start;
+            }
         }
 
         &--title {
@@ -59,6 +68,10 @@
                 font-weight: 700;
                 padding-top: 3rem;
             }
+
+            @include desktop {
+                padding:0 0 0.5rem;
+            }    
         }
 
         &--text {
@@ -83,6 +96,7 @@
             }
 
             @include desktop {
+                padding:0.5rem 0 0;
                 max-width: $max-content-width;
                 word-wrap: break-word;
                 width: 70%;
@@ -91,25 +105,17 @@
 
         &--iframebox {
             margin: 0;
-            padding-bottom: 1rem;
 
             @include tablet {
                 width: 58%;
             }
 
             @include desktop {
-                position: relative;
+                 margin:auto 0;
             }
         }
 
-        &--iframebox2 {
-            margin: 0;
-            @include desktop {
-                position: absolute;
-                width: 100%;
-                bottom: 2.5rem;
-            }
-        }
+    
     }
 }
 

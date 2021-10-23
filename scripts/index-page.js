@@ -1,11 +1,9 @@
-const commentsList = document.querySelector('.comments__cards');
+
+let commentSection = document.querySelector('.comments__cards');
 
 const domainName = `https://project-1-api.herokuapp.com`;
 const API_key = '0419780e-8dd8-49c0-9e55-898d29814a69';
 
-// axios.get(`${domainName}/comments?api_key=${API_key}`).then((response) => {
-//     console.log('Comments', response.data);
-// });
 
 // create function 
 function displayComment() {
@@ -59,6 +57,19 @@ function displayComment() {
             commentsText.innerText = comment.comment;
             commentsText.classList.add('comments__card--text');
 
+
+        //    //create <div>
+        //    const iconDiv = document.createElement('div');
+        //    iconDiv.classList.add('comments__card--icon');
+
+        //    const commentsLike = document.createElement('button');
+        //    commentsLike.innerText = "👍";
+        //    commentsLike.classList.add('comments__card--like');  
+           
+        //    const commentsDelete = document.createElement('button');
+        //    commentsDelete.innerText = "🗑️";
+        //    commentsDelete.classList.add('comments__card--delete');   
+
             // append create elements  to commentsItem
             leftDiv.appendChild(commentsImage);
             commentsItem.appendChild(leftDiv);
@@ -67,10 +78,16 @@ function displayComment() {
             rightDiv.appendChild(topDiv);
             bottomDiv.appendChild(commentsText);
             rightDiv.appendChild(bottomDiv);
+            // iconDiv.appendChild(commentsLike);
+            // iconDiv.appendChild(commentsDelete);
+            // rightDiv.appendChild(iconDiv);
             commentsItem.appendChild(rightDiv);
 
             // finally append all the <li> elements to commentsList
-            commentsList.appendChild(commentsItem);
+            commentSection.appendChild(commentsItem);
+
+            // adding eventListener for button
+           // eventListenerLikeButton(commentsLike)
         });
     });
 }
@@ -83,10 +100,8 @@ function createCommentObject(name, comment) {
     axios
         .post(`${domainName}/comments?api_key=${API_key}`, commentObject)
         .then((response) => {
-            //console.log('Comment posted successsfully.');
 
             //Clearing the list from DOM and adding the updated comment list
-            let commentSection = document.querySelector('.comments__cards');
             commentSection.innerHTML = '';
             displayComment();
             clear();
@@ -95,6 +110,9 @@ function createCommentObject(name, comment) {
             console.log('Error in posting new comment', error);
         });
 }
+
+
+
 // Clears the input fields after submitting a new comment
 function clear() {
     document.getElementById('name').value = '';

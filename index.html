@@ -17,7 +17,7 @@
                     alt="Bandsite logo"></a>
             <nav class="primary-nav">
                 <ul class="primary-nav__list">
-                    <a href="./index.html" class="primary-nav__item"> Biography</a>
+                    <a href="./index.html" class="primary-nav__item primary-nav__highlight"> Biography</a>
                     <a href="./pages/shows.html" class="primary-nav__item"> Shows</a>
                 </ul>
             </nav>
@@ -96,7 +96,7 @@
 
                 <div class="comments__form--right">
                     <div class="comments__form--field">
-                        <label class="comments__form--label-tag">Name</label>
+                        <label for="name" class="comments__form--label-tag">Name</label>
                         <input class="comments__form--name" 
                             type="text" 
                             id='name' 
@@ -105,14 +105,18 @@
                         />
                     </div>
                     <div class="comments__form--field">
-                        <label class="comments__form--label-tag">Comment</label>
+                        <label for="comment" class="comments__form--label-tag">Comment</label>
                         <textarea 
                             class="comments__form--text" 
                             id='comment' name="comment"
                             placeholder="Add a new comment" 
-                            ></textarea>
-                        <button class="comments__form--sbt" type="submit">Comment</button>
+                            ></textarea>   
+                                           
                     </div>
+                    <div class="comments__form--sbtwrapper">
+                        <button class="comments__form--sbt " type="submit">Comment</button>
+                    </div>
+                    
                 </div>
             </form>
             <ul class="comments__cards">
@@ -135,26 +139,26 @@
 
             <div class="footer__cards">
                 <div class="footer__card">
-                    <p class="footer__card--name">Cam Adams</br>
-                        The Bees Knees Management</p>
-                    <p class="footer__card--address">503 Broadway Penthouse,</br>
-                        New York, NY 10012, USA</p>
+                    <p class="footer__card--name">Cam Adams
+                    <span>   The Bees Knees Management</span></p>
+                    <p class="footer__card--address">503 Broadway Penthouse,
+                    <span> New York, NY 10012, USA</span></p>
                     <p class="footer__card--email">info@thebeesknees.com</p>
                 </div>
 
                 <div class="footer__card">
-                    <p class="footer__card--name">Pearl Gregg</br>
-                        Limitless Artist Group</p>
-                    <p class="footer__card--address">Booking Agent for</br>
-                        US / South America / Japan</p>
+                    <p class="footer__card--name">Pearl Gregg
+                    <span> Limitless Artist Group</span></p>
+                    <p class="footer__card--address">Booking Agent for
+                    <span> US / South America / Japan</span></p>
                     <p class="footer__card--email">pearl.gregg@limitlessag.com</p>
                 </div>
 
                 <div class="footer__card">
-                    <p class="footer__card--name">Carson Whyte</br>
-                        ARCH Entertainment</p>
-                    <p class="footer__card--address">Booking Agent for </br>
-                        UK / EU / AU</p>
+                    <p class="footer__card--name">Carson Whyte
+                    <span> ARCH Entertainment</span></p>
+                    <p class="footer__card--address">Booking Agent for 
+                    <span> UK / EU / AU</span></p>
                     <p class="footer__card--email">cwhyte@archentertainment.com</p>
                 </div>
             </div>

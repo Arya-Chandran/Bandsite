@@ -81,7 +81,7 @@
     }
 
     &:hover {
-      border-bottom: 0.25rem solid $active-color;
+     
       font-weight: bold;
 
       @include tablet {
@@ -91,6 +91,11 @@
     }
     
     @include flex-center;
+  }
+
+  &__highlight{
+    border-bottom: 0.25rem solid $active-color;
+    font-weight: bold;
   }
 }
 
@@ -108,6 +113,12 @@
     color: $active-color;
     padding-bottom: 1rem;
     position: relative;
+
+    @include tablet {
+    padding-top:3rem;
+    padding-bottom:36px;
+    }
+
     @include desktop {
       max-width: $max-content-width;
     }
@@ -118,7 +129,7 @@
     flex-direction: column;
     @include tablet {
       flex-direction: row;
-      justify-content: start;
+     
     }
   }
 
@@ -132,7 +143,7 @@
     @include tablet {
       font-size: 2.15rem;
       line-height: 2.75rem;
-      padding-right: 2rem;
+      padding:0 2rem 0 0;
     }
   }
 
@@ -159,6 +170,14 @@
       padding-bottom: 0;
     }
   }
+
+  & span{
+    &::before {
+      content: "\A";
+      white-space: pre;
+    }
+  }
+  
 
   &__card {
     padding-top: 0;
@@ -197,7 +216,7 @@
       background-position: right top;
       left: 0;
       bottom: 0;
-      top: 30px;
+      top: 55px;
       right: 0;
       display: flex;
       justify-content: center;

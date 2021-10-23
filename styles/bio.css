@@ -125,7 +125,6 @@ body {
   }
 }
 .primary-nav__item:hover {
-  border-bottom: 0.25rem solid #ffffff;
   font-weight: bold;
 }
 @media screen and (min-width: 768px) {
@@ -133,6 +132,10 @@ body {
     margin-right: 24px;
     padding: 30px 0;
   }
+}
+.primary-nav__highlight {
+  border-bottom: 0.25rem solid #ffffff;
+  font-weight: bold;
 }
 
 .footer {
@@ -157,6 +160,12 @@ body {
   padding-bottom: 1rem;
   position: relative;
 }
+@media screen and (min-width: 768px) {
+  .footer__wrapper {
+    padding-top: 3rem;
+    padding-bottom: 36px;
+  }
+}
 @media screen and (min-width: 1280px) {
   .footer__wrapper {
     max-width: 1280px;
@@ -169,7 +178,6 @@ body {
 @media screen and (min-width: 768px) {
   .footer__title-box {
     flex-direction: row;
-    justify-content: start;
   }
 }
 .footer__title {
@@ -184,7 +192,7 @@ body {
   .footer__title {
     font-size: 2.15rem;
     line-height: 2.75rem;
-    padding-right: 2rem;
+    padding: 0 2rem 0 0;
   }
 }
 .footer__images {
@@ -209,6 +217,10 @@ body {
     line-height: 1.25rem;
     padding-bottom: 0;
   }
+}
+.footer span::before {
+  content: "\a";
+  white-space: pre;
 }
 .footer__card {
   padding-top: 0;
@@ -248,7 +260,7 @@ body {
     background-position: right top;
     left: 0;
     bottom: 0;
-    top: 30px;
+    top: 55px;
     right: 0;
     display: flex;
     justify-content: center;
@@ -277,7 +289,6 @@ body {
   background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/images/hero-bio.jpg");
   background-position: center;
   background-size: cover;
-  position: relative;
 }
 @media screen and (min-width: 768px) {
   .hero {
@@ -297,22 +308,25 @@ body {
   }
 }
 .hero__wrapper {
-  position: absolute;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  top: 50%;
-  bottom: 50%;
+}
+@media screen and (min-width: 768px) {
+  .hero__wrapper {
+    height: 500px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .hero__wrapper {
     max-width: 1280px;
-    top: 50%;
-    bottom: 50%;
+    height: 600px;
   }
 }
 .hero__wrapper--text {
-  margin: 0;
+  display: flex;
+  align-items: center;
   color: #ffffff;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -682,6 +696,7 @@ body {
   box-sizing: border-box;
   border: 1px solid #e1e1e1;
   border-radius: 0.25rem;
+  resize: none;
 }
 .comments__form--text:focus {
   outline: none !important;
@@ -693,6 +708,10 @@ body {
     line-height: 1.375rem;
     flex: 0 0 25%;
   }
+}
+.comments__form--sbtwrapper {
+  display: flex;
+  justify-content: flex-end;
 }
 .comments__form--sbt {
   font-size: 1rem;
@@ -711,6 +730,11 @@ body {
 }
 .comments__form--sbt:hover {
   background-color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .comments__form--sbt {
+    width: 30%;
+  }
 }
 .comments__cards {
   margin: 0;
@@ -829,4 +853,14 @@ body {
   .comments__card--text {
     max-width: 1280px;
   }
+}
+.comments__card--icon {
+  display: flex;
+  justify-content: space-between;
+}
+.comments__card--like {
+  margin: 0;
+}
+.comments__card--delete {
+  margin: 0;
 }/*# sourceMappingURL=bio.css.map */
