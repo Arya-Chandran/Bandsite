@@ -1,6 +1,4 @@
-
 const showsList = document.querySelector(".shows__cards");
-console.log(showsList);
 
 const domainName = `https://project-1-api.herokuapp.com`;
 const API_key = '0419780e-8dd8-49c0-9e55-898d29814a69';
@@ -14,7 +12,6 @@ function listShows() {
         return b.timestamp - a.timestamp;
     });
 
-   //for (let i = 0; i < showDetails.length; i++)
    sortedShowdates.forEach(function (show) {
     // create <li>
     const showsItem = document.createElement("li");

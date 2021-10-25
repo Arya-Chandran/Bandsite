@@ -1,16 +1,13 @@
-
 let commentSection = document.querySelector('.comments__cards');
 
 const domainName = `https://project-1-api.herokuapp.com`;
-const API_key = '0419780e-8dd8-49c0-9e55-898d29814a69';
+const API_key = '5b4055af-d305-432e-adc3-1caa3789ce36';
 
-
-// create function 
+// create function
 function displayComment() {
-
     axios.get(`${domainName}/comments?api_key=${API_key}`).then((response) => {
         // sort the objects in the array by date
-		const sortedComments = response.data.sort(function (a, b) { 
+        const sortedComments = response.data.sort(function (a, b) {
             return b.timestamp - a.timestamp;
         });
 
@@ -57,18 +54,17 @@ function displayComment() {
             commentsText.innerText = comment.comment;
             commentsText.classList.add('comments__card--text');
 
+            //create <div>
+            const iconDiv = document.createElement('div');
+            iconDiv.classList.add('comments__card--icon');
 
-        //    //create <div>
-        //    const iconDiv = document.createElement('div');
-        //    iconDiv.classList.add('comments__card--icon');
+            const commentsLike = document.createElement('button');
+            commentsLike.innerText = comment.likes + ' Likes';
+            commentsLike.classList.add('comments__card--like');
 
-        //    const commentsLike = document.createElement('button');
-        //    commentsLike.innerText = "👍";
-        //    commentsLike.classList.add('comments__card--like');  
-           
-        //    const commentsDelete = document.createElement('button');
-        //    commentsDelete.innerText = "🗑️";
-        //    commentsDelete.classList.add('comments__card--delete');   
+            const commentsDelete = document.createElement('button');
+            commentsDelete.innerText = 'Delete';
+            commentsDelete.classList.add('comments__card--delete');
 
             // append create elements  to commentsItem
             leftDiv.appendChild(commentsImage);
@@ -78,16 +74,37 @@ function displayComment() {
             rightDiv.appendChild(topDiv);
             bottomDiv.appendChild(commentsText);
             rightDiv.appendChild(bottomDiv);
-            // iconDiv.appendChild(commentsLike);
-            // iconDiv.appendChild(commentsDelete);
-            // rightDiv.appendChild(iconDiv);
+            iconDiv.appendChild(commentsLike);
+            iconDiv.appendChild(commentsDelete);
+            rightDiv.appendChild(iconDiv);
             commentsItem.appendChild(rightDiv);
 
             // finally append all the <li> elements to commentsList
             commentSection.appendChild(commentsItem);
 
-            // adding eventListener for button
-           // eventListenerLikeButton(commentsLike)
+            // adding eventListener for like button
+            commentsLike.addEventListener('click', () => {
+                likeComment(comment.id)
+                    .then((likes) => {
+                        if (likes) {
+                            commentsLike.innerText = likes + ' Likes';
+                        }
+                    })
+                    .catch((err) => {
+                        console.log('Like count failed to update.');
+                    });
+            });
+
+            // adding eventListener for delete button
+            commentsDelete.addEventListener('click', () => {
+                deleteComment(comment.id)
+                    .then(() => {
+                        commentsItem.remove();
+                    })
+                    .catch((err) => {
+                        console.log('Delete failed to update.');
+                    });
+            });
         });
     });
 }
@@ -100,7 +117,6 @@ function createCommentObject(name, comment) {
     axios
         .post(`${domainName}/comments?api_key=${API_key}`, commentObject)
         .then((response) => {
-
             //Clearing the list from DOM and adding the updated comment list
             commentSection.innerHTML = '';
             displayComment();
@@ -111,7 +127,39 @@ function createCommentObject(name, comment) {
         });
 }
 
+function likeComment(id) {
+    return new Promise(function (resolve, reject) {
+        const likes = axios
+            .put(`${domainName}/comments/${id}/like?api_key=${API_key}`)
+            .then((response) => {
+                console.log(response);
+                return response.data.likes;
+            })
+            .catch((error) => {
+                console.log('Error in updating like comment', error);
+                reject(false);
+            });
+        resolve(likes);
+    });
+}
 
+function deleteComment(id) {
+    return new Promise(function (resolve, reject) {
+        axios
+            .delete(`${domainName}/comments/${id}?api_key=${API_key}`)
+            .then((response) => {
+                console.log(
+                    `Deleted the comment: ${id} sucessfully`,
+                    response.data
+                );
+                resolve();
+            })
+            .catch((error) => {
+                console.log('Error in updating delete comment', error);
+                reject();
+            });
+    });
+}
 
 // Clears the input fields after submitting a new comment
 function clear() {
